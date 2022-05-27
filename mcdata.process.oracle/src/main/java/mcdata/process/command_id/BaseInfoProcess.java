@@ -62,7 +62,7 @@ public class BaseInfoProcess {
 		}
 		
 		Pattern patternMsisdn = Pattern.compile(Props.getProp("msisdn_pattern"));
-		Pattern patternP = Pattern.compile("(\\w)#(\\w)#(\\w+)(,(.+),(.+))?");
+		Pattern patternP = Pattern.compile("(\\w)#(\\w)#(\\w+)(,(.+),(.+),(.*))?");
 		Pattern patternS = Pattern.compile("(\\w)#(\\w*)");
 		
 		int batch = Integer.parseInt(Props.getProp("batch"));
@@ -104,6 +104,14 @@ public class BaseInfoProcess {
 					JSONObject mapOutput = new JSONObject();
 					
 					String msisdn = line[Integer.parseInt(indexMsisdn)];
+					if(msisdn==null || msisdn.trim().isEmpty() || msisdn.length() > 15) {
+						Files.createDirectories(Paths.get("log_error", args[0],service_provider));
+						FileUtils.writeStringToFile(
+								new File(Paths.get("log_error", args[0],service_provider,FilenameUtils.removeExtension(new File(inputFile).getName())+".msisdn").toString()),
+								msisdn+"\n",StandardCharsets.UTF_8, true);
+						skip++;
+						continue;
+					}
 
 					matcher = patternMsisdn.matcher(msisdn);
 			    	if (matcher.find()) {
@@ -152,17 +160,24 @@ public class BaseInfoProcess {
 								mapOutput.put(entry.getKey(), Double.parseDouble(cell));
 							}else if(matcher.group(2).equals("t")) {
 								String patternDateTime2 = matcher.group(5);
-								DateTimeFormatter formaterIn2 = DateTimeFormatter
-										.ofPattern(patternDateTime2);
+								DateTimeFormatter formaterIn2 = DateTimeFormatter.ofPattern(patternDateTime2);
+								
 								String patternDateTime3 = matcher.group(6);
-								DateTimeFormatter formaterOut2 = DateTimeFormatter
-										.ofPattern(patternDateTime3);
+								DateTimeFormatter formaterOut2 = DateTimeFormatter.ofPattern(patternDateTime3);
 								try {
-									mapOutput.put(entry.getKey(), formaterOut2
-											.format(LocalDateTime.parse(cell, formaterIn2)));
+									mapOutput.put(entry.getKey(), formaterOut2.format(LocalDateTime.parse(cell, formaterIn2)));
 								} catch (java.time.format.DateTimeParseException e) {
-									mapOutput.put(entry.getKey(),
-											formaterOut2.format(LocalDate.parse(cell, formaterIn2)));
+									try {
+										mapOutput.put(entry.getKey(),formaterOut2.format(LocalDate.parse(cell, formaterIn2)));
+									} catch (java.time.format.DateTimeParseException e1) {
+										String patternDateTime4 = matcher.group(7);
+										DateTimeFormatter formaterIn3 = DateTimeFormatter.ofPattern(patternDateTime4);
+										try {
+											mapOutput.put(entry.getKey(),formaterOut2.format(LocalDateTime.parse(cell, formaterIn3)));
+										} catch (java.time.format.DateTimeParseException e2) {
+											mapOutput.put(entry.getKey(),formaterOut2.format(LocalDate.parse(cell, formaterIn3)));
+										}
+									}
 								}
 							}else {
 								mapOutput.put(entry.getKey(), cell);

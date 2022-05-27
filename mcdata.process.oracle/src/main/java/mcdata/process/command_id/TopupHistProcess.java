@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -27,7 +28,7 @@ import mcdata.process.model.Data;
 import mcdata.process.utils.Props;
 
 public class TopupHistProcess {
-	public void startApp(String args[]) throws Exception {
+	public void startApp(String args[], Connection conn) throws Exception {
 		
 		long begin = System.currentTimeMillis();
 
@@ -70,6 +71,7 @@ public class TopupHistProcess {
 		int batch = Integer.parseInt(Props.getProp("batch"));
 		long count = 0;
 		long skip = 0;
+		long msInsert = 0;
 		for (String inputFile : list) {
 			long now = System.currentTimeMillis();
 			System.out.println("read: " + inputFile);
@@ -105,13 +107,28 @@ public class TopupHistProcess {
 					JSONObject mapOutput = new JSONObject();
 
 					String msisdn = line[Integer.parseInt(indexMsisdn)];
+					if(msisdn==null || msisdn.trim().isEmpty() || msisdn.length() > 15) {
+						Files.createDirectories(Paths.get("log_error", args[0],service_provider));
+						FileUtils.writeStringToFile(
+								new File(Paths.get("log_error", args[0],service_provider,FilenameUtils.removeExtension(new File(inputFile).getName())+".msisdn").toString()),
+								msisdn+"\n",StandardCharsets.UTF_8, true);
+						skip++;
+						continue;
+					}
+					
 					matcher = patternMsisdn.matcher(msisdn);
 					if (matcher.find()) {
 						msisdn = "84" + matcher.group("g1");
+					}else {
+                        Files.createDirectories(Paths.get("log_error", args[0],service_provider));
+                        FileUtils.writeStringToFile(
+                                new File(Paths.get("log_error", args[0],service_provider,FilenameUtils.removeExtension(new File(inputFile).getName())+".msisdn").toString()),
+                                msisdn+"\n",StandardCharsets.UTF_8, true);
+                        skip++;
+                        continue;
 					}
 
-					String datetime = formaterOut
-							.format(LocalDateTime.parse(line[Integer.parseInt(indexDateTime)], formaterIn));
+					String datetime = formaterOut.format(LocalDateTime.parse(line[Integer.parseInt(indexDateTime)], formaterIn));
 
 					mapOutput.put("msisdn", msisdn);
 					mapOutput.put("datetime", datetime);
@@ -166,17 +183,29 @@ public class TopupHistProcess {
 							}
 						}
 					}
+					
+					if(mapOutput.toString().length()>300) {
+                        Files.createDirectories(Paths.get("log_error", args[0],service_provider));
+                        FileUtils.writeStringToFile(
+                                        new File(Paths.get("log_error", args[0],service_provider,FilenameUtils.removeExtension(new File(inputFile).getName())+".jsonstring").toString()),
+                                        msisdn+"\n",StandardCharsets.UTF_8, true);
+                        skip++;
+                        continue;
+					}
 
 					listInsert.add(new Data(msisdn,yyyy+"-"+MM+"-"+dd,mapOutput.toString()));
 					
 					if(count % batch == 0) {
-						Database.insertTH(listInsert);
+						long beforeInsert = System.currentTimeMillis();
+						Database.insertTH(conn, listInsert);
+						msInsert += (System.currentTimeMillis()-beforeInsert);
 						
 						listInsert.clear();
 						Files.createDirectories(Paths.get("log", args[0],service_provider));
 						long duration = System.currentTimeMillis() - begin;
 						output = "running: " + count + "\n"
 								+ "duration: " + duration + " ms\n"
+								+ "insert: " + msInsert + " ms, ("+((double)msInsert/duration)+")\n"
 								+ "1hour: " + count * 60000 / duration * 60 + "\n"
 								+ "6000b: " + 6000000000f/(count * 60000 / duration * 60) / 24;
 						Files.write(Paths.get("log", args[0],service_provider,FilenameUtils.removeExtension(new File(inputFile).getName())+".running"), output.getBytes(StandardCharsets.UTF_8));
@@ -199,7 +228,7 @@ public class TopupHistProcess {
 					
 			
 
-			Database.insertTH(listInsert);
+			Database.insertTH(conn, listInsert);
 			listInsert.clear();
 			
 			Files.write(Paths.get("log", args[0],service_provider,FilenameUtils.removeExtension(new File(inputFile).getName())+".running"),
@@ -214,6 +243,7 @@ public class TopupHistProcess {
 			count = 0;
 			skip = 0;
 			begin = System.currentTimeMillis();
+			msInsert = 0;
 			
 			reader.close();
 

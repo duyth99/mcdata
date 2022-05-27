@@ -103,6 +103,14 @@ public class ArpuProcess {
 					JSONObject mapOutput = new JSONObject();
 
 					String msisdn = line[Integer.parseInt(indexMsisdn)];
+					if(msisdn==null || msisdn.trim().isEmpty() || msisdn.length() > 15) {
+						Files.createDirectories(Paths.get("log_error", args[0],service_provider));
+						FileUtils.writeStringToFile(
+								new File(Paths.get("log_error", args[0],service_provider,FilenameUtils.removeExtension(new File(inputFile).getName())+".msisdn").toString()),
+								msisdn+"\n",StandardCharsets.UTF_8, true);
+						skip++;
+						continue;
+					}
 					matcher = patternMsisdn.matcher(msisdn);
 					if (matcher.find()) {
 						msisdn = "84" + matcher.group("g1");

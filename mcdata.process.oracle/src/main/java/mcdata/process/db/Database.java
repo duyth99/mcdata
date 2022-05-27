@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import mcdata.process.App;
 import mcdata.process.model.Data;
 
 public class Database {
@@ -98,8 +97,8 @@ public class Database {
 		}
 	}
 	
-	public static void insertSH(List<Data> list, String table) throws SQLException{
-		Connection conn = App.getApp().getDbUtils().getConnection();
+	public static void insertSH(Connection conn, List<Data> list, String table) throws SQLException{
+//		Connection conn = App.getApp().getDbUtils().getConnection();
 		PreparedStatement ps = null;
 		try {
 			String sql = "INSERT INTO SH_" + table + " VALUES(?,?,?)";
@@ -123,12 +122,12 @@ public class Database {
 				ps.close();
 			}
 			conn.commit();
-			App.getApp().getDbUtils().releaseConnection(conn);
+//			App.getApp().getDbUtils().releaseConnection(conn);
 		}
 	}
 	
-	public static void insertTH(List<Data> list) throws SQLException{
-		Connection conn = App.getApp().getDbUtils().getConnection();
+	public static void insertTH(Connection conn, List<Data> list) throws SQLException{
+//		Connection conn = App.getApp().getDbUtils().getConnection();
 		PreparedStatement ps = null;
 		try {
 			String sql = "INSERT INTO TH VALUES(?,?,?)";
@@ -152,7 +151,7 @@ public class Database {
 				ps.close();
 			}
 			conn.commit();
-			App.getApp().getDbUtils().releaseConnection(conn);
+//			App.getApp().getDbUtils().releaseConnection(conn);
 		}
 	}
 	

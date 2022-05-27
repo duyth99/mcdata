@@ -48,10 +48,10 @@ public class App {
 					CallHistProcess.getApp().startApp(args, conn);
 					break;
 				case "SH":
-					SmsHistProcess.getApp().startApp(args);
+					SmsHistProcess.getApp().startApp(args, conn);
 					break;
 				case "TH":
-					TopupHistProcess.getApp().startApp(args);
+					TopupHistProcess.getApp().startApp(args, conn);
 					break;
 				default:
 					System.out.println("???");
