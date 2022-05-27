@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<client_certificate>
+	<client>
+		<request_id>mc</request_id>
+		<secret_key>66998A3D5DDE674177243BB663C6E986</secret_key>
+	</client>
+	<client>
+		<request_id>ABC</request_id>
+		<secret_key>12398A3D5DDE674177243BB663C6E986</secret_key>
+	</client>
+</client_certificate>
