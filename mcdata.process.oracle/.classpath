@@ -30,14 +30,14 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/ojdbc8-21.3.0.0.jar"/>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/ons.jar"/>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/oraclepki.jar"/>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/orai18n.jar"/>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/osdt_cert.jar"/>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/osdt_core.jar"/>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/simplefan.jar"/>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/ucp.jar"/>
-	<classpathentry kind="lib" path="E:/mcdata/mcdata.process.oracle/lib/xdb6.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/ojdbc8-21.3.0.0.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/ons.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/oraclepki.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/orai18n.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/osdt_cert.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/osdt_core.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/simplefan.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/ucp.jar"/>
+	<classpathentry kind="lib" path="E:/GoogleDrive/General/Code/git/mcdata/process/mcdata/mcdata.process.oracle/lib/xdb6.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

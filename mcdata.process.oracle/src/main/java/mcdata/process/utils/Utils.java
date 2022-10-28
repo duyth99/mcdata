@@ -40,4 +40,8 @@ public class Utils {
             throw new AssertionError(e);
         }
     }
+    
+    public static String H2Hm(double hours) {
+    	return (int)hours+"h"+Math.round((hours-(int)hours)*60)+"m";
+    }
 }

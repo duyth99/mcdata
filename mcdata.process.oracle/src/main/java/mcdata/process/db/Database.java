@@ -86,6 +86,7 @@ public class Database {
             ps.close();
 			
 		}catch(SQLException e){
+//			System.out.println(new Gson().toJson(list));
 			conn.rollback();
 			throw e;
 		} finally {
