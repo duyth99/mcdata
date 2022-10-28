@@ -1,0 +1,6 @@
+2022/06/16 14:02:24 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/16 14:02:24 mcdata.api.server.impl.PlatformImpl main [main][INFO]:
+				Can not start server.
+2022/06/16 14:02:24 mcdata.api.server.impl.PlatformImpl main [main][INFO]:
+				Error: java.lang.NumberFormatException: null

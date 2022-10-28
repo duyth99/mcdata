@@ -1,0 +1,562 @@
+2022/06/29 17:16:26 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/29 17:16:27 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/29 17:16:29 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/29 17:19:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"affa31ba1d9041d57983ed88bce73bb986641c6b5e7d175876d942012a687e4e","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:19:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"affa31ba1d9041d57983ed88bce73bb986641c6b5e7d175876d942012a687e4e","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:19:40 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:19:44 mcdata.api.process.GetBaseInfo lambda$0 [qtp1350720002-19 - /telco-data/base-info][ERROR]:
+				Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newSQLException(UCPErrorHandler.java:488) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwSQLException(UCPErrorHandler.java:163) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:690) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:39) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:78) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	... 39 common frames omitted
+2022/06/29 17:19:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][ERROR]:
+				Error
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:123) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:39) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:78) ~[classes/:na]
+	... 30 common frames omitted
+2022/06/29 17:19:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][ERROR]:
+				ERROR:Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:22:40 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/29 17:22:40 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/29 17:22:43 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/29 17:23:00 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"2022060"}}
+2022/06/29 17:23:00 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"2022060"}}
+2022/06/29 17:23:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-21 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:23:43 mcdata.api.process.GetBaseInfo lambda$0 [qtp1350720002-21 - /telco-data/base-info][ERROR]:
+				Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newSQLException(UCPErrorHandler.java:488) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwSQLException(UCPErrorHandler.java:163) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:690) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:39) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:78) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	... 39 common frames omitted
+2022/06/29 17:23:43 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-21 - /telco-data/base-info][ERROR]:
+				Error
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:123) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:39) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:78) ~[classes/:na]
+	... 30 common frames omitted
+2022/06/29 17:23:43 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-21 - /telco-data/base-info][ERROR]:
+				ERROR:Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:26:31 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/29 17:26:31 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/29 17:26:34 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/29 17:26:36 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-20 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:26:40 mcdata.api.process.GetBaseInfo lambda$0 [qtp1350720002-20 - /telco-data/base-info][ERROR]:
+				Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newSQLException(UCPErrorHandler.java:488) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwSQLException(UCPErrorHandler.java:163) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:690) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:39) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:82) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	... 39 common frames omitted
+2022/06/29 17:26:40 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-20 - /telco-data/base-info][ERROR]:
+				Error
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:127) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:39) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:82) ~[classes/:na]
+	... 30 common frames omitted
+2022/06/29 17:26:40 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-20 - /telco-data/base-info][ERROR]:
+				ERROR:Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:28:02 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-21 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:28:03 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-21 - /telco-data/base-info][INFO]:
+				listen end -- 
+2022/06/29 17:30:57 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/29 17:30:57 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/29 17:31:00 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/29 17:31:47 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/29 17:31:47 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/29 17:31:49 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/29 17:31:53 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 17:31:54 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp1350720002-19 - /telco-data/base-info][INFO]:
+				listen end -- 
+2022/06/29 18:06:05 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/29 18:06:05 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/29 18:06:07 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/29 18:06:13 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 18:06:13 mcdata.api.process.GetBaseInfo lambda$0 [qtp185203393-19 - /telco-data/base-info][ERROR]:
+				Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newSQLException(UCPErrorHandler.java:488) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwSQLException(UCPErrorHandler.java:163) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:690) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:82) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	... 39 common frames omitted
+2022/06/29 18:06:13 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][ERROR]:
+				Error
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:127) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:82) ~[classes/:na]
+	... 30 common frames omitted
+2022/06/29 18:06:13 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][ERROR]:
+				ERROR:Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 18:06:51 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-20 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 18:06:52 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-20 - /telco-data/base-info][INFO]:
+				listen end -- 
+2022/06/29 18:08:39 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/29 18:08:39 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/29 18:08:41 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/29 18:08:42 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-23 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/29 18:08:43 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-23 - /telco-data/base-info][INFO]:
+				listen end -- 

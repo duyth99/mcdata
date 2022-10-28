@@ -1,0 +1,88 @@
+2022/06/28 16:48:31 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/28 16:48:31 mcdata.api.server.impl.PlatformImpl main [main][INFO]:
+				Can not start server.
+2022/06/28 16:48:31 mcdata.api.server.impl.PlatformImpl main [main][INFO]:
+				Error: java.lang.NumberFormatException: null
+2022/06/28 16:50:04 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/28 16:50:04 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/28 16:50:06 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/28 16:50:49 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-20 - /telco-data/all][INFO]:
+				listen ... -- {"token":"1b3e36c436b8bb9c6f0142fb8e1751f1bbf0dd1a7cf2a9f72b31fe6270f66be9","request_id":"test","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:50:49 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-20 - /telco-data/all][INFO]:
+				-3:ECERTIFICATE/khong ton tai client_id: test -- {"token":"1b3e36c436b8bb9c6f0142fb8e1751f1bbf0dd1a7cf2a9f72b31fe6270f66be9","request_id":"test","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:51:33 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/28 16:51:33 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/28 16:51:35 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/28 16:51:37 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][INFO]:
+				listen ... -- {"token":"1b3e36c436b8bb9c6f0142fb8e1751f1bbf0dd1a7cf2a9f72b31fe6270f66be9","request_id":"test","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:51:37 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"token":"1b3e36c436b8bb9c6f0142fb8e1751f1bbf0dd1a7cf2a9f72b31fe6270f66be9","request_id":"test","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:52:31 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/28 16:52:31 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/28 16:52:34 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/28 16:53:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test1","token":"7135a5ec560fad43ed1ee0efb4b0ef28168b0b3f28a5d0c99b84dcf5e401d759","request_id":"1001","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:53:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				-3:ECERTIFICATE/khong ton tai client_id: 1001 -- {"user_id":"test1","token":"7135a5ec560fad43ed1ee0efb4b0ef28168b0b3f28a5d0c99b84dcf5e401d759","request_id":"1001","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:58:58 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/28 16:58:58 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/28 16:59:00 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/28 16:59:08 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test1","token":"7135a5ec560fad43ed1ee0efb4b0ef28168b0b3f28a5d0c99b84dcf5e401d759","request_id":"1001","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:59:08 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][INFO]:
+				-3:ECERTIFICATE/khong ton tai user_id: test1 -- {"user_id":"test1","token":"7135a5ec560fad43ed1ee0efb4b0ef28168b0b3f28a5d0c99b84dcf5e401d759","request_id":"1001","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:59:28 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"2e8dce4974a8aeb99267c264b2fac2c785f87304b2735b947ce2d737e773facc","request_id":"1001","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 16:59:30 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				-6:ENOT_START/Thang 08-2021 chua co du lieu -- {"user_id":"test","token":"2e8dce4974a8aeb99267c264b2fac2c785f87304b2735b947ce2d737e773facc","request_id":"1001","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:00:38 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/28 17:00:38 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/28 17:00:40 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/28 17:00:43 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-18 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"2e8dce4974a8aeb99267c264b2fac2c785f87304b2735b947ce2d737e773facc","request_id":"1001","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:00:45 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-18 - /telco-data/all][INFO]:
+				listen end -- 
+2022/06/28 17:04:27 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp1350720002-18 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"ccb9d652a3e6f9f6a5184c8462ee8b471b280a2ac3f02a6e4f9e05d81285ed9f","request_id":"10000000001","request_type":"call_hist","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:04:27 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp1350720002-18 - /telco-data/call-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"ccb9d652a3e6f9f6a5184c8462ee8b471b280a2ac3f02a6e4f9e05d81285ed9f","request_id":"10000000001","request_type":"call_hist","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:04:53 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp1350720002-20 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"9c53fa45f667f75a0ffec0d64666d9e8577dae742c2686b0f2f14654a377ee49","request_id":"1000000001","request_type":"call_hist","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:04:53 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp1350720002-20 - /telco-data/call-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"9c53fa45f667f75a0ffec0d64666d9e8577dae742c2686b0f2f14654a377ee49","request_id":"1000000001","request_type":"call_hist","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:04:56 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp1350720002-22 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"9c53fa45f667f75a0ffec0d64666d9e8577dae742c2686b0f2f14654a377ee49","request_id":"1000000001","request_type":"call_hist","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:04:56 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp1350720002-22 - /telco-data/call-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"9c53fa45f667f75a0ffec0d64666d9e8577dae742c2686b0f2f14654a377ee49","request_id":"1000000001","request_type":"call_hist","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:05:34 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp1350720002-19 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"79bbccb0c5785572fe561ef42558c7a2b60a5275eb110d2a7a36e3304e6debde","request_id":"1000000001","request_type":"call_hist","request_body":{"msisdns":["84829600368"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/28 17:05:34 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp1350720002-19 - /telco-data/call-hist][INFO]:
+				listen end -- 
+2022/06/28 17:09:17 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-18 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"8f3a92969f137eed5cfc543f99e0d2c54aee5c4b35dd07dab84253ad110333af","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/28 17:09:17 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-18 - /telco-data/all][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"8f3a92969f137eed5cfc543f99e0d2c54aee5c4b35dd07dab84253ad110333af","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/28 17:09:35 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"da68c0ad85b02b8853544970cde55bea63371350e757c2b354ca5deb8c304cd9","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/28 17:09:35 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"da68c0ad85b02b8853544970cde55bea63371350e757c2b354ca5deb8c304cd9","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/28 17:10:59 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-18 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"439f9ae31b15799f4926fec4b9f8fe1819a710424dc704c31f256e758466a3f9","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/28 17:11:01 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-18 - /telco-data/all][INFO]:
+				listen end -- 

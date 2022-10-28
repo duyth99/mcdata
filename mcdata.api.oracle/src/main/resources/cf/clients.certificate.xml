@@ -8,4 +8,16 @@
 		<request_id>ABC</request_id>
 		<secret_key>12398A3D5DDE674177243BB663C6E986</secret_key>
 	</client>
+ <client>
+		<request_id>test</request_id>
+		<secret_key>66998A2D5DDE674177243BB663C6E986</secret_key>
+	</client>
+ <client>
+		<request_id>gfin1</request_id>
+		<secret_key>2457432C127436F0134876BFD9D16574</secret_key>
+	</client>
+ <client>
+		<request_id>gfin</request_id>
+		<secret_key>5F22EF0C54E277C59D878892D0A1FABA</secret_key>
+	</client>
 </client_certificate>

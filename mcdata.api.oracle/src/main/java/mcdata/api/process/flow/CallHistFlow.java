@@ -31,7 +31,7 @@ import mcdata.api.server.impl.PlatformImpl;
 public class CallHistFlow {
 	static Exception sqlExcep = null;
 	
-	public static ResponseObject run(CallHistRequest bodyObj) throws ApiException, Exception {
+	public static ResponseObject run(CallHistRequest bodyObj, ResponseObject responseObject) throws ApiException, Exception {
 
 		List<String> responseBody = new ArrayList<>();
 		
@@ -187,7 +187,6 @@ public class CallHistFlow {
 
 		
 		
-		ResponseObject responseObject = new ResponseObject();
 		responseObject.setResponse_body(responseBody);
 		responseObject.setBatch(responseBody.size());
 		

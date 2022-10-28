@@ -31,7 +31,7 @@ import mcdata.api.server.impl.PlatformImpl;
 public class TopupHistFlow {
 	static Exception sqlExcep = null;
 	
-	public static ResponseObject run(TopupHistRequest bodyObj) throws ApiException, Exception {
+	public static ResponseObject run(TopupHistRequest bodyObj, ResponseObject responseObject) throws ApiException, Exception {
 
 		List<String> responseBody = new ArrayList<>();
 		
@@ -115,7 +115,6 @@ public class TopupHistFlow {
 		
 		
 		
-		ResponseObject responseObject = new ResponseObject();
 		responseObject.setResponse_body(responseBody);
 		responseObject.setBatch(responseBody.size());
 		

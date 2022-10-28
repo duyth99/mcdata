@@ -31,7 +31,7 @@ import mcdata.api.server.impl.PlatformImpl;
 public class SmsHistFlow {
 	static Exception sqlExcep = null;
 	
-	public static ResponseObject run(SmsHistRequest bodyObj) throws ApiException, Exception {
+	public static ResponseObject run(SmsHistRequest bodyObj, ResponseObject responseObject) throws ApiException, Exception {
 
 		List<String> responseBody = new ArrayList<>();
 
@@ -141,7 +141,6 @@ public class SmsHistFlow {
 		
 		
 		
-		ResponseObject responseObject = new ResponseObject();
 		responseObject.setResponse_body(responseBody);
 		responseObject.setBatch(responseBody.size());
 		

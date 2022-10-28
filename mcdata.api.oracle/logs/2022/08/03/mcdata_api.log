@@ -1,0 +1,182 @@
+2022/08/03 08:57:41 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/08/03 08:57:41 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/08/03 08:57:44 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/08/03 09:37:29 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-20 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"5686f8768ddb25df88d034a3ff7f96735091c205f3438c7543892142f532d5dc","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84966387040"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/08/03 09:37:50 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-20 - /telco-data/all][INFO]:
+				listen end -- 
+2022/08/03 10:08:41 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/08/03 10:08:41 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/08/03 10:08:44 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/08/03 10:08:52 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"5686f8768ddb25df88d034a3ff7f96735091c205f3438c7543892142f532d5dc","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84966387040"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/08/03 10:08:57 mcdata.api.process.GetAll lambda$0 [qtp1350720002-19 - /telco-data/all][ERROR]:
+				ORA-00933: SQL command not properly ended
+
+java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:494) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:226) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:59) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:747) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3780) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1343) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3822) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1165) ~[ojdbc8.jar:12.2.0.1.0]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at oracle.ucp.jdbc.proxy.PreparedStatementProxyFactory.invoke(PreparedStatementProxyFactory.java:124) ~[ucp.jar:12.1.0.0.0]
+	at com.sun.proxy.$Proxy38.executeQuery(Unknown Source) ~[na:na]
+	at mcdata.api.db.DatabaseEx.selectMNP(DatabaseEx.java:309) ~[classes/:na]
+	at mcdata.api.common.Utils.filterByTelco(Utils.java:270) ~[classes/:na]
+	at mcdata.api.process.GetAll.lambda$0(GetAll.java:66) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:556) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498) ~[ojdbc8.jar:12.2.0.1.0]
+	... 55 common frames omitted
+2022/08/03 10:08:57 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][ERROR]:
+				Error
+java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:602) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
+Caused by: oracle.jdbc.OracleDatabaseException: ORA-00933: SQL command not properly ended
+
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:498) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIoer11.processError(T4CTTIoer11.java:446) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:1054) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:623) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:252) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:612) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:226) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:59) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:747) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:904) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1082) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3780) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.T4CPreparedStatement.executeInternal(T4CPreparedStatement.java:1343) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3822) ~[ojdbc8.jar:12.2.0.1.0]
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.executeQuery(OraclePreparedStatementWrapper.java:1165) ~[ojdbc8.jar:12.2.0.1.0]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564) ~[na:na]
+	at oracle.ucp.jdbc.proxy.PreparedStatementProxyFactory.invoke(PreparedStatementProxyFactory.java:124) ~[ucp.jar:12.1.0.0.0]
+	at com.sun.proxy.$Proxy38.executeQuery(Unknown Source) ~[na:na]
+	at mcdata.api.db.DatabaseEx.selectMNP(DatabaseEx.java:309) ~[classes/:na]
+	at mcdata.api.common.Utils.filterByTelco(Utils.java:270) ~[classes/:na]
+	at mcdata.api.process.GetAll.lambda$0(GetAll.java:66) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:556) ~[classes/:na]
+	... 30 common frames omitted
+2022/08/03 10:08:57 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][ERROR]:
+				ERROR:ORA-00933: SQL command not properly ended
+ -- {"user_id":"test","token":"5686f8768ddb25df88d034a3ff7f96735091c205f3438c7543892142f532d5dc","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84966387040"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/08/03 10:11:55 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/08/03 10:11:55 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/08/03 10:11:57 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/08/03 10:12:00 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"5686f8768ddb25df88d034a3ff7f96735091c205f3438c7543892142f532d5dc","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84966387040"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/08/03 10:12:09 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-19 - /telco-data/all][INFO]:
+				listen end -- 
+2022/08/03 10:12:15 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"663967622e56d5259633d4e8b66bdb2733378e5665dd031ceb1d3fd535a91afd","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600368","84392118165"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/08/03 10:12:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen end -- 
+2022/08/03 10:13:59 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/08/03 10:13:59 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/08/03 10:14:02 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/08/03 10:14:09 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-18 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"5686f8768ddb25df88d034a3ff7f96735091c205f3438c7543892142f532d5dc","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84966387040"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/08/03 10:14:16 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-18 - /telco-data/all][INFO]:
+				listen end -- 
+2022/08/03 10:14:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"663967622e56d5259633d4e8b66bdb2733378e5665dd031ceb1d3fd535a91afd","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600368","84392118165"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/08/03 10:14:28 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen end -- 
+2022/08/03 10:19:20 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"663967622e56d5259633d4e8b66bdb2733378e5665dd031ceb1d3fd535a91afd","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600368","84392118165"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/08/03 10:19:28 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1350720002-21 - /telco-data/all][INFO]:
+				listen end -- 

@@ -34,7 +34,7 @@ public class ArpuFlow {
 //	public static synchronized int plusBatch(int plus) {
 //		return outputBatchSize+=plus;
 //	}
-	public static ResponseObject run(ArpuRequest bodyObj) throws ApiException, Exception {
+	public static ResponseObject run(ArpuRequest bodyObj, ResponseObject responseObject) throws ApiException, Exception {
 
 		List<HashMap<String, Object>> responseBody = new ArrayList<>();
 		
@@ -156,7 +156,6 @@ public class ArpuFlow {
 
 		
 		
-		ResponseObject responseObject = new ResponseObject();
 		responseObject.setResponse_body(responseBody);
 		responseObject.setBatch(outputBatchSize);
 		

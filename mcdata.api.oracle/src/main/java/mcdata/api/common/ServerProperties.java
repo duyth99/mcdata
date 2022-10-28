@@ -5,18 +5,23 @@ package mcdata.api.common;
 
 public class ServerProperties {
 	private int listening_port;
-	private int maximum_number_of_concurrent_requests;
+//	private int maximum_number_of_concurrent_requests;
 	private int api_executing_delay_in_milliseconds;
 
 	private String linkCertificate;
 	private String fileLock;
 	private int max_msisdns_train;
-	private int max_msisdns_fetch;
+//	private int max_msisdns_fetch;
 	private int max_thread;
 	private int max_request_per_client_train;
-	private int max_request_per_client_fetch;
+//	private int max_request_per_client_fetch;
 	
+	private int api_number_of_retries;
+	private int api_retry_delay_in_milliseconds;
 	
+//	private String telco;
+//	private String vnp_prefix;
+//	private String vtt_prefix;
 
 	public ServerProperties() {
 		// app properties
@@ -24,14 +29,21 @@ public class ServerProperties {
 		setLinkCertificate(Utils.getProperties("link_certificate"));
 		setApi_executing_delay_in_milliseconds(
 				Integer.valueOf(Utils.getProperties("api_executing_delay_in_milliseconds")));
-		setMaximum_number_of_concurrent_requests(
-				Integer.valueOf(Utils.getProperties("maximum_number_of_concurrent_requests")));
+//		setMaximum_number_of_concurrent_requests(
+//				Integer.valueOf(Utils.getProperties("maximum_number_of_concurrent_requests")));
 		setFileLock(Utils.getProperties("file_lock"));
 		setMax_msisdns_train(Integer.valueOf(Utils.getProperties("max_msisdns_train")));
-		setMax_msisdns_fetch(Integer.valueOf(Utils.getProperties("max_msisdns_fetch")));
+//		setMax_msisdns_fetch(Integer.valueOf(Utils.getProperties("max_msisdns_fetch")));
 		setMax_thread(Integer.valueOf(Utils.getProperties("max_thread")));
 		setMax_request_per_client_train(Integer.valueOf(Utils.getProperties("max_request_per_client_train")));
-		setMax_request_per_client_fetch(Integer.valueOf(Utils.getProperties("max_request_per_client_fetch")));
+//		setMax_request_per_client_fetch(Integer.valueOf(Utils.getProperties("max_request_per_client_fetch")));
+		
+		setApi_number_of_retries(Integer.valueOf(Utils.getProperties("api_number_of_retries")));
+		setApi_retry_delay_in_milliseconds(Integer.valueOf(Utils.getProperties("api_retry_delay_in_milliseconds")));
+		
+//		setTelco(Utils.getProperties("telco"));
+//		setVnp_prefix(Utils.getProperties("vnp_prefix"));
+//		setVtt_prefix(Utils.getProperties("vtt_prefix"));
 	}
 
 
@@ -42,12 +54,7 @@ public class ServerProperties {
 		return listening_port;
 	}
 
-	/**
-	 * @return the maximum_number_of_concurrent_requests
-	 */
-	public int getMaximum_number_of_concurrent_requests() {
-		return maximum_number_of_concurrent_requests;
-	}
+	
 
 	/**
 	 * @param listening_port the listening_port to set
@@ -56,14 +63,7 @@ public class ServerProperties {
 		this.listening_port = listening_port;
 	}
 
-	/**
-	 * @param maximum_number_of_concurrent_requests the
-	 *                                              maximum_number_of_concurrent_requests
-	 *                                              to set
-	 */
-	public void setMaximum_number_of_concurrent_requests(int maximum_number_of_concurrent_requests) {
-		this.maximum_number_of_concurrent_requests = maximum_number_of_concurrent_requests;
-	}
+	
 
 	/**
 	 * @param api_executing_delay_in_milliseconds the
@@ -130,14 +130,7 @@ public class ServerProperties {
 	}
 
 
-	public int getMax_msisdns_fetch() {
-		return max_msisdns_fetch;
-	}
-
-
-	public void setMax_msisdns_fetch(int max_msisdns_fetch) {
-		this.max_msisdns_fetch = max_msisdns_fetch;
-	}
+	
 
 
 	public int getMax_request_per_client_train() {
@@ -150,20 +143,28 @@ public class ServerProperties {
 	}
 
 
-	public int getMax_request_per_client_fetch() {
-		return max_request_per_client_fetch;
+	
+
+
+	public int getApi_number_of_retries() {
+		return api_number_of_retries;
 	}
 
 
-	public void setMax_request_per_client_fetch(int max_request_per_client_fetch) {
-		this.max_request_per_client_fetch = max_request_per_client_fetch;
+	public void setApi_number_of_retries(int api_number_of_retries) {
+		this.api_number_of_retries = api_number_of_retries;
+	}
+
+
+	public int getApi_retry_delay_in_milliseconds() {
+		return api_retry_delay_in_milliseconds;
+	}
+
+
+	public void setApi_retry_delay_in_milliseconds(int api_retry_delay_in_milliseconds) {
+		this.api_retry_delay_in_milliseconds = api_retry_delay_in_milliseconds;
 	}
 
 
 	
-
-
-	
-
-
 }

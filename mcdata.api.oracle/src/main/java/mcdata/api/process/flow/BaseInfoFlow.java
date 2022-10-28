@@ -23,7 +23,7 @@ import mcdata.api.server.impl.PlatformImpl;
 public class BaseInfoFlow {
 	static Exception sqlExcep = null;
 	
-	public static ResponseObject run(BaseInfoRequest bodyObj) throws ApiException, Exception {
+	public static ResponseObject run(BaseInfoRequest bodyObj, ResponseObject responseObject) throws ApiException, Exception {
 
 		List<String> responseBody = new ArrayList<>();
 		
@@ -76,7 +76,6 @@ public class BaseInfoFlow {
 		}
 		
 		
-		ResponseObject responseObject = new ResponseObject();
 		responseObject.setResponse_body(responseBody);
 		responseObject.setBatch(responseBody.size());
 		

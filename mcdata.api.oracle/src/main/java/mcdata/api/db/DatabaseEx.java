@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -108,7 +109,9 @@ public class DatabaseEx {
 				inCondition += Arrays.asList(Arrays.copyOfRange(msisdns, i, i+1000)).stream().collect(Collectors.joining("','", "'", "'"));
 				inCondition+=" )";
 			}
-			String sql = "SELECT RECORD FROM ARPU WHERE (0=1"+inCondition+") AND SNAP_DATE>=? AND SNAP_DATE<=?";
+			String sql = "select min(record) keep(dense_rank first order by record) from arpu "
+							+ " where (0=1"+inCondition+") AND SNAP_DATE>=? AND SNAP_DATE<=? "
+							+ " group by msisdn,snap_date";
 			
 			
 //			String sql = "SELECT * FROM ARPU_09_2021 WHERE MSISDN IN("+Arrays.asList(msisdns).stream().collect(Collectors.joining("','", "'", "'"))+")";
@@ -260,6 +263,55 @@ public class DatabaseEx {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				result.add(rs.getString(1));
+			}
+
+			rs.close();
+			ps.close();
+			
+			return result;
+		} catch (SQLException e) {
+			connection.rollback();
+			throw e;
+		} finally {
+			connection.commit();
+			if (ps != null && !ps.isClosed()) {
+				ps.close();
+			}
+			PlatformImpl.getPlatform().getDbUtils().releaseConnection(connection);
+		}
+	}
+	
+	public static HashMap<String, String> selectMNP(String[] msisdns) throws SQLException{
+		Connection connection = PlatformImpl.getPlatform().getDbUtils().getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		HashMap<String, String> result = new HashMap<>();
+		try {
+			
+			String inCondition = "";
+			for(int i=0;i<msisdns.length;i+=1000) {
+				inCondition+=" OR phone IN(";
+				if(i+1000>msisdns.length) {
+					inCondition += Arrays.asList(Arrays.copyOfRange(msisdns, i, msisdns.length)).stream().collect(Collectors.joining("','", "'", "'"));
+					inCondition+=" )";
+					break;
+				}
+				inCondition += Arrays.asList(Arrays.copyOfRange(msisdns, i, i+1000)).stream().collect(Collectors.joining("','", "'", "'"));
+				inCondition+=" )";
+			}
+			//String sql = "SELECT phone,oper_mnp FROM MNP_TELCO WHERE (0=1"+inCondition+") and rownum = 1 order by changedate desc";
+			String sql = "SELECT t.phone, t.oper_mnp, r.MaxTime "
+					+ " FROM (SELECT phone, MAX(changedate) as MaxTime FROM MNP_TELCO where (0=1"+inCondition+") GROUP BY phone) r "
+					+ " INNER JOIN MNP_TELCO t ON t.phone = r.phone AND t.changedate = r.MaxTime";
+			
+			
+			ps = connection.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				String telco = rs.getString(2);
+				if(telco.equals("GPC")) telco = "vnp";
+				if(telco.equals("VTE")) telco = "vtt";
+				result.put(rs.getString(1), telco);
 			}
 
 			rs.close();

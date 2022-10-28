@@ -62,7 +62,7 @@ public interface Constants {
 
 	public interface Description {
 		public final static String OK = "OK";
-		public final static String ERROR = "General error";
+		public final static String ERROR = "Unknown error";
 		public final static String EVALIDATION = "One of parameter is not vaild";
 		public final static String ECERTIFICATE = "Certificate error";
 		public final static String NO_DATA = "Empty";

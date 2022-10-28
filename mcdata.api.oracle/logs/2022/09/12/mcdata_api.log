@@ -1,0 +1,73 @@
+2022/09/12 21:11:33 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/09/12 21:11:33 mcdata.api.server.impl.PlatformImpl main [main][INFO]:
+				Can not start server.
+2022/09/12 21:11:33 mcdata.api.server.impl.PlatformImpl main [main][INFO]:
+				Error: java.lang.NumberFormatException: Cannot parse null string
+2022/09/12 21:12:14 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/09/12 21:12:14 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/09/12 21:12:16 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/09/12 21:12:36 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-24 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"29e9e7fa2fb128b085c22e46c8beb6d934394d8608d6a927cf5828b669a6b86e","request_id":"xyz0123456789","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20220401","end_date":"20220601","data_duration_month":3}}
+2022/09/12 21:12:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-24 - /telco-data/all][INFO]:
+				listen end -- 
+2022/09/12 21:12:55 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-24 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"663967622e56d5259633d4e8b66bdb2733378e5665dd031ceb1d3fd535a91afd","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84829600368","84392118165"],"start_date":"20211001","end_date":"20220601","data_duration_month":3}}
+2022/09/12 21:12:56 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-24 - /telco-data/all][INFO]:
+				listen end -- 
+2022/09/12 23:50:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-24 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"5e54489d89febdf1f44280d6787c8871ca386577b71941d1fe1c21380799433d","request_id":"xyz0123456789","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20220301","end_date":"20220701","data_duration_month":3}}
+2022/09/12 23:50:44 mcdata.api.process.GetAll lambda$0 [qtp1965036946-24 - /telco-data/all][ERROR]:
+				ENOT_START/Thang 06-2022 chua co du lieu
+mcdata.api.exception.NotStartException: ENOT_START/Thang 06-2022 chua co du lieu
+	at mcdata.api.process.flow.ArpuFlow.run(ArpuFlow.java:64) ~[classes/:na]
+	at mcdata.api.process.GetAll.lambda$0(GetAll.java:76) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:556) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2022/09/12 23:50:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-24 - /telco-data/all][INFO]:
+				-6:ENOT_START/Thang 06-2022 chua co du lieu -- {"user_id":"test","token":"5e54489d89febdf1f44280d6787c8871ca386577b71941d1fe1c21380799433d","request_id":"xyz0123456789","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20220301","end_date":"20220701","data_duration_month":3}}
+2022/09/12 23:51:20 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-24 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"5e54489d89febdf1f44280d6787c8871ca386577b71941d1fe1c21380799433d","request_id":"xyz0123456789","request_type":"all","request_body":{"msisdns":["84829600368"],"start_date":"20220301","end_date":"20220701","data_duration_month":3}}
+2022/09/12 23:51:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-24 - /telco-data/all][INFO]:
+				listen end -- 
+2022/09/12 23:52:10 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"c8ae31487d80f0d6effc8b4c3507a8cb63bca00ed2a90370a296793a76ede72d","request_id":"xyz0123456789","request_type":"all","request_body":{"msisdns":["84829600368","84392118165"],"start_date":"20220301","end_date":"20220701","data_duration_month":3}}
+2022/09/12 23:52:11 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-21 - /telco-data/all][INFO]:
+				listen end -- 
+2022/09/12 23:52:25 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"test","token":"c8ae31487d80f0d6effc8b4c3507a8cb63bca00ed2a90370a296793a76ede72d","request_id":"xyz0123456789","request_type":"all","request_body":{"msisdns":["84829600368","84392118165"],"start_date":"20220301","end_date":"20220701","data_duration_month":3}}
+2022/09/12 23:52:26 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp1965036946-21 - /telco-data/all][INFO]:
+				listen end -- 

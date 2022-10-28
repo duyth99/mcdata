@@ -1,0 +1,905 @@
+2022/06/30 09:57:13 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 09:57:13 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 09:57:15 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 09:57:16 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/30 09:57:16 mcdata.api.process.GetBaseInfo lambda$0 [qtp185203393-21 - /telco-data/base-info][ERROR]:
+				Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newSQLException(UCPErrorHandler.java:488) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwSQLException(UCPErrorHandler.java:163) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:690) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:85) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	... 39 common frames omitted
+2022/06/30 09:57:16 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][ERROR]:
+				Error
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:134) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:85) ~[classes/:na]
+	... 30 common frames omitted
+2022/06/30 09:57:16 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][ERROR]:
+				ERROR:Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/30 09:58:05 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 09:58:05 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 09:58:07 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 09:58:08 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/30 09:58:08 mcdata.api.process.GetBaseInfo lambda$0 [qtp185203393-19 - /telco-data/base-info][ERROR]:
+				Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newSQLException(UCPErrorHandler.java:488) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwSQLException(UCPErrorHandler.java:163) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:690) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:85) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	... 39 common frames omitted
+2022/06/30 09:58:08 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][ERROR]:
+				Error
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:134) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetBaseInfo.lambda$0(GetBaseInfo.java:68) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.baseInfo(HTTPControllerImpl.java:85) ~[classes/:na]
+	... 30 common frames omitted
+2022/06/30 09:58:08 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][ERROR]:
+				ERROR:Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/30 11:52:23 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"26409bd1aadbe3e3b6e289c29cfff90dc3448b19e6da6aad76e7f0ccb4455372","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220601"}}
+2022/06/30 11:52:24 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen end -- 
+2022/06/30 11:54:29 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 11:54:29 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 11:54:31 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 11:55:50 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"2d9bbd1d867ff5964aeb41f24f7b113d92328012e6b4c480ce288a465b2542b0","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600000"],"snapshot_date":"20220601"}}
+2022/06/30 11:55:50 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen end -- 
+2022/06/30 11:58:24 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-20 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"cfb46ecd6a90c0a672e26a3b45112d7167e13f186818b2fb4a4af3e34a18a38d","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220701"}}
+2022/06/30 11:58:24 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-20 - /telco-data/base-info][INFO]:
+				listen end -- 
+2022/06/30 11:59:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-20 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"cfb46ecd6a90c0a672e26a3b45112d7167e13f186818b2fb4a4af3e34a18a38d","request_id":"xyz012","request_type":"base_inf","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220701"}}
+2022/06/30 11:59:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-20 - /telco-data/base-info][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"cfb46ecd6a90c0a672e26a3b45112d7167e13f186818b2fb4a4af3e34a18a38d","request_id":"xyz012","request_type":"base_inf","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220701"}}
+2022/06/30 12:00:36 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-20 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"cfb46ecd6a90c0a672e26a3b45112d7167e13f186818b2fb4a4af3e34a18a38d","request_id":"xyz01","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220701"}}
+2022/06/30 12:00:36 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-20 - /telco-data/base-info][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"cfb46ecd6a90c0a672e26a3b45112d7167e13f186818b2fb4a4af3e34a18a38d","request_id":"xyz01","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220701"}}
+2022/06/30 17:47:17 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 17:47:17 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 17:47:19 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 17:47:23 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"cfb46ecd6a90c0a672e26a3b45112d7167e13f186818b2fb4a4af3e34a18a38d","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20220701"}}
+2022/06/30 17:47:23 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][INFO]:
+				listen end -- 
+2022/06/30 17:47:58 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"cfb46ecd6a90c0a672e26a3b45112d7167e13f186818b2fb4a4af3e34a18a38d","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"2022071"}}
+2022/06/30 17:47:58 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-19 - /telco-data/base-info][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"cfb46ecd6a90c0a672e26a3b45112d7167e13f186818b2fb4a4af3e34a18a38d","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"2022071"}}
+2022/06/30 17:51:46 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 17:51:46 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 17:51:48 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 17:51:50 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-20 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 17:51:51 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-20 - /telco-data/arpu][INFO]:
+				listen end -- 
+2022/06/30 17:51:58 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-24 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"2022060","data_duration_month":3}}
+2022/06/30 17:51:58 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-24 - /telco-data/arpu][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"2022060","data_duration_month":3}}
+2022/06/30 17:52:05 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-19 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"aru","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 17:52:05 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-19 - /telco-data/arpu][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"aru","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 17:52:58 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 17:52:58 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 17:53:00 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 17:53:02 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-24 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 17:53:02 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-24 - /telco-data/arpu][INFO]:
+				listen end -- 
+2022/06/30 17:53:04 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"2022061","data_duration_month":3}}
+2022/06/30 17:53:04 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"2022061","data_duration_month":3}}
+2022/06/30 17:53:07 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arp","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 17:53:07 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arp","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 18:41:51 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-22 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"5fb916d66704ba3f89cabd62efd66ba7bb773b7406a16ce4a159c56dcb126c5b","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220701","data_duration_month":3}}
+2022/06/30 18:41:51 mcdata.api.process.GetArpu lambda$0 [qtp185203393-22 - /telco-data/arpu][ERROR]:
+				ENOT_START/Thang 06-2022 chua co du lieu
+mcdata.api.exception.NotStartException: ENOT_START/Thang 06-2022 chua co du lieu
+	at mcdata.api.process.flow.ArpuFlow.run(ArpuFlow.java:64) ~[classes/:na]
+	at mcdata.api.process.GetArpu.lambda$0(GetArpu.java:61) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.arpu(HTTPControllerImpl.java:176) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2022/06/30 18:41:51 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-22 - /telco-data/arpu][INFO]:
+				-6:ENOT_START/Thang 06-2022 chua co du lieu -- {"user_id":"gfin1","token":"5fb916d66704ba3f89cabd62efd66ba7bb773b7406a16ce4a159c56dcb126c5b","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220701","data_duration_month":3}}
+2022/06/30 20:12:26 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 20:12:26 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 20:12:28 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 20:12:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"5d9d780a3cd24ffd2088173d59ec3f1ee053dce42eca3e2d83f86e4a34b2527a","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 20:12:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen end -- 
+2022/06/30 20:12:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"5d9d780a3cd24ffd2088173d59ec3f1ee053dce42eca3e2d83f86e4a34b2527a","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"2022060","data_duration_month":3}}
+2022/06/30 20:12:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"5d9d780a3cd24ffd2088173d59ec3f1ee053dce42eca3e2d83f86e4a34b2527a","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"2022060","data_duration_month":3}}
+2022/06/30 20:12:50 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"5d9d780a3cd24ffd2088173d59ec3f1ee053dce42eca3e2d83f86e4a34b2527a","request_id":"xyz012","request_type":"call_hit","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 20:12:50 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"5d9d780a3cd24ffd2088173d59ec3f1ee053dce42eca3e2d83f86e4a34b2527a","request_id":"xyz012","request_type":"call_hit","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 20:13:15 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"78289e5917f1c4431638eade0af09c67298586bca2ff2d25f42f1dbc4ba6b3bb","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220701","data_duration_month":3}}
+2022/06/30 20:13:15 mcdata.api.process.GetCallHist lambda$0 [qtp185203393-23 - /telco-data/call-hist][ERROR]:
+				ENOT_START/Thang 06-2022 chua co du lieu
+mcdata.api.exception.NotStartException: ENOT_START/Thang 06-2022 chua co du lieu
+	at mcdata.api.process.flow.CallHistFlow.run(CallHistFlow.java:64) ~[classes/:na]
+	at mcdata.api.process.GetCallHist.lambda$0(GetCallHist.java:53) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.callHist(HTTPControllerImpl.java:268) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2022/06/30 20:13:15 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				-6:ENOT_START/Thang 06-2022 chua co du lieu -- {"user_id":"gfin1","token":"78289e5917f1c4431638eade0af09c67298586bca2ff2d25f42f1dbc4ba6b3bb","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20220501","end_date":"20220701","data_duration_month":3}}
+2022/06/30 20:49:33 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"c402f77b8318ac7fae3a6ef46fd169aac36c5f2104ba26545861c9c976ce8afd","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:49:33 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen end -- 
+2022/06/30 20:49:52 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-19 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"d85f24eb6639e3a6cf28362619ffac4ba896548566ae53d0c184741d91892567","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:49:52 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-19 - /telco-data/arpu][INFO]:
+				listen end -- 
+2022/06/30 20:50:16 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-19 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:16 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-19 - /telco-data/arpu][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:20 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-23 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:20 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-23 - /telco-data/arpu][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"051e02ae165b9d2429f6e6e1990bc0dfb5ac1b6e032f65cdbe133d9eb686b8e8","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:24 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-23 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:24 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-23 - /telco-data/arpu][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-23 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-23 - /telco-data/arpu][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:58 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:50:58 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:51:50 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"c402f77b8318ac7fae3a6ef46fd169aac36c5f2104ba26545861c9c976ce8afd","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:51:50 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				listen end -- 
+2022/06/30 20:52:06 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"27eb20047679ada7d2c7ee5c908be60ace22baac571a7fb8f188326a90fa514d","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:52:08 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen end -- 
+2022/06/30 20:52:34 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"0da5dbb50a86adb2a16eb2a1b385d6d2e5e5e382d75da92acc5b0ef23fc9e6c8","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84829600330"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:52:35 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen end -- 
+2022/06/30 20:53:15 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"2ebc3d1e09754da8866ff148d1257a3b4fae6ea7aa75150487220c3f238e8e76","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84829600600"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:53:16 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen end -- 
+2022/06/30 20:54:40 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:54:41 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen end -- 
+2022/06/30 20:55:15 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"f931cad01dfeb3bc9ee2199123b1ec9ea9e93821a02e7afcd4a12bc65cff4041","request_id":"xyz012","request_type":"topup_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:55:15 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"f931cad01dfeb3bc9ee2199123b1ec9ea9e93821a02e7afcd4a12bc65cff4041","request_id":"xyz012","request_type":"topup_hist","request_body":{"msisdns":["84829600300"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:55:28 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"f931cad01dfeb3bc9ee2199123b1ec9ea9e93821a02e7afcd4a12bc65cff4041","request_id":"xyz012","request_type":"topup_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:55:28 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				listen end -- 
+2022/06/30 20:56:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"f931cad01dfeb3bc9ee2199123b1ec9ea9e93821a02e7afcd4a12bc65cff4041","request_id":"xyz012","request_type":"topup_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021090","data_duration_month":3}}
+2022/06/30 20:56:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"f931cad01dfeb3bc9ee2199123b1ec9ea9e93821a02e7afcd4a12bc65cff4041","request_id":"xyz012","request_type":"topup_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021090","data_duration_month":3}}
+2022/06/30 20:56:25 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"f931cad01dfeb3bc9ee2199123b1ec9ea9e93821a02e7afcd4a12bc65cff4041","request_id":"xyz012","request_type":"topuphist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:56:25 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"f931cad01dfeb3bc9ee2199123b1ec9ea9e93821a02e7afcd4a12bc65cff4041","request_id":"xyz012","request_type":"topuphist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:56:32 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"f931cad01dfeb3bc9ee2199123b1ec9ea9e93821a02e7afcd4a12bc65cff4041","request_id":"xyz012","request_type":"topup_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:56:32 mcdata.api.httpcontroller.impl.HTTPControllerImpl topup [qtp185203393-23 - /telco-data/topup-hist][INFO]:
+				listen end -- 
+2022/06/30 20:56:52 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-19 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021001","data_duration_month":3}}
+2022/06/30 20:56:52 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-19 - /telco-data/sms-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021001","data_duration_month":3}}
+2022/06/30 20:56:57 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hst","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:56:57 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hst","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:57:06 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:57:07 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen end -- 
+2022/06/30 20:57:14 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"03ba4274ee22b37afbb64c3bfc788af6fa8f860915b46e6d15b48da64ecaa116","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"202109010","data_duration_month":3}}
+2022/06/30 20:57:14 mcdata.api.process.GetSmsHist lambda$0 [qtp185203393-23 - /telco-data/sms-hist][ERROR]:
+				EVALIDATION/sai yyyyMMdd
+mcdata.api.exception.ValidateException: EVALIDATION/sai yyyyMMdd
+	at mcdata.api.process.flow.SmsHistFlow.run(SmsHistFlow.java:50) ~[classes/:na]
+	at mcdata.api.process.GetSmsHist.lambda$0(GetSmsHist.java:54) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.smsHist(HTTPControllerImpl.java:360) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+2022/06/30 20:57:14 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				-2:EVALIDATION/sai yyyyMMdd -- {"user_id":"gfin1","token":"03ba4274ee22b37afbb64c3bfc788af6fa8f860915b46e6d15b48da64ecaa116","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"202109010","data_duration_month":3}}
+2022/06/30 20:57:29 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"202109010","data_duration_month":3}}
+2022/06/30 20:57:29 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"202109010","data_duration_month":3}}
+2022/06/30 20:57:32 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"bd82a081a8b75f35cca5d1d692b5ce01bf229448e2fb5fec5c14e2aa671f7e73","request_id":"xyz012","request_type":"sms_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:57:33 mcdata.api.httpcontroller.impl.HTTPControllerImpl smsHist [qtp185203393-23 - /telco-data/sms-hist][INFO]:
+				listen end -- 
+2022/06/30 20:58:01 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"5a8924c527cff8f5aa25867fcd0e5386cabb39c4745fbb1aa95f6d99e7e843bb","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:58:01 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"5a8924c527cff8f5aa25867fcd0e5386cabb39c4745fbb1aa95f6d99e7e843bb","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:58:13 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e3099abe35f1b334b8034ec0ddfa963b43007f627e5bb2753767c4ca12238108","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:58:13 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-23 - /telco-data/call-hist][INFO]:
+				listen end -- 
+2022/06/30 20:58:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e3099abe35f1b334b8034ec0ddfa963b43007f627e5bb2753767c4ca12238108","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021090","data_duration_month":3}}
+2022/06/30 20:58:21 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"e3099abe35f1b334b8034ec0ddfa963b43007f627e5bb2753767c4ca12238108","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021090","data_duration_month":3}}
+2022/06/30 20:58:25 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e3099abe35f1b334b8034ec0ddfa963b43007f627e5bb2753767c4ca12238108","request_id":"xyz012","request_type":"call_hit","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021090","data_duration_month":3}}
+2022/06/30 20:58:25 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"e3099abe35f1b334b8034ec0ddfa963b43007f627e5bb2753767c4ca12238108","request_id":"xyz012","request_type":"call_hit","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021090","data_duration_month":3}}
+2022/06/30 20:58:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e3099abe35f1b334b8034ec0ddfa963b43007f627e5bb2753767c4ca12238108","request_id":"xyz012","request_type":"call_hist","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:58:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl callHist [qtp185203393-19 - /telco-data/call-hist][INFO]:
+				listen end -- 
+2022/06/30 20:59:18 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-19 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"a9b2af2797e945b305a85ebddbaefa6f43bfd694ab90cb66e9c78711d27bb9fd","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 20:59:18 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-19 - /telco-data/arpu][INFO]:
+				listen end -- 
+2022/06/30 21:00:59 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-19 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e16a7279152ccc764aaf1a7612897d4bb6133f69e8f9da9d0f8ab79f1e9b0fa4","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 21:00:59 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-19 - /telco-data/all][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"e16a7279152ccc764aaf1a7612897d4bb6133f69e8f9da9d0f8ab79f1e9b0fa4","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20220501","end_date":"20220601","data_duration_month":3}}
+2022/06/30 21:01:14 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-19 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e16a7279152ccc764aaf1a7612897d4bb6133f69e8f9da9d0f8ab79f1e9b0fa4","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 21:01:14 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-19 - /telco-data/all][INFO]:
+				listen end -- 
+2022/06/30 21:03:30 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 21:03:30 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 21:03:32 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 21:03:51 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-19 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e16a7279152ccc764aaf1a7612897d4bb6133f69e8f9da9d0f8ab79f1e9b0fa4","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021091","data_duration_month":3}}
+2022/06/30 21:03:51 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-19 - /telco-data/all][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"e16a7279152ccc764aaf1a7612897d4bb6133f69e8f9da9d0f8ab79f1e9b0fa4","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021091","data_duration_month":3}}
+2022/06/30 21:03:53 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e16a7279152ccc764aaf1a7612897d4bb6133f69e8f9da9d0f8ab79f1e9b0fa4","request_id":"xyz012","request_type":"al","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021091","data_duration_month":3}}
+2022/06/30 21:03:53 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-21 - /telco-data/all][INFO]:
+				-2:EVALIDATION/sai request_type: al -- {"user_id":"gfin1","token":"e16a7279152ccc764aaf1a7612897d4bb6133f69e8f9da9d0f8ab79f1e9b0fa4","request_id":"xyz012","request_type":"al","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021091","data_duration_month":3}}
+2022/06/30 21:03:56 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"e16a7279152ccc764aaf1a7612897d4bb6133f69e8f9da9d0f8ab79f1e9b0fa4","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 21:03:57 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-21 - /telco-data/all][INFO]:
+				listen end -- 
+2022/06/30 21:04:54 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"cb50bd2276d6f5a88d03d3b703391e2935c8506f5d2606ffece76d7486bb9a79","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"20210901"}}
+2022/06/30 21:04:54 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen end -- 
+2022/06/30 21:04:57 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"cb50bd2276d6f5a88d03d3b703391e2935c8506f5d2606ffece76d7486bb9a79","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"2021901"}}
+2022/06/30 21:04:57 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"cb50bd2276d6f5a88d03d3b703391e2935c8506f5d2606ffece76d7486bb9a79","request_id":"xyz012","request_type":"base_info","request_body":{"msisdns":["84829600300"],"snapshot_date":"2021901"}}
+2022/06/30 21:05:02 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"cb50bd2276d6f5a88d03d3b703391e2935c8506f5d2606ffece76d7486bb9a79","request_id":"xyz012","request_type":"base_ifo","request_body":{"msisdns":["84829600300"],"snapshot_date":"20210901"}}
+2022/06/30 21:05:02 mcdata.api.httpcontroller.impl.HTTPControllerImpl baseInfo [qtp185203393-21 - /telco-data/base-info][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"cb50bd2276d6f5a88d03d3b703391e2935c8506f5d2606ffece76d7486bb9a79","request_id":"xyz012","request_type":"base_ifo","request_body":{"msisdns":["84829600300"],"snapshot_date":"20210901"}}
+2022/06/30 21:05:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"a9b2af2797e945b305a85ebddbaefa6f43bfd694ab90cb66e9c78711d27bb9fd","request_id":"xyz012","request_type":"apu","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021001","data_duration_month":3}}
+2022/06/30 21:05:44 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				-2:EVALIDATION/One of parameter is not vaild -- {"user_id":"gfin1","token":"a9b2af2797e945b305a85ebddbaefa6f43bfd694ab90cb66e9c78711d27bb9fd","request_id":"xyz012","request_type":"apu","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021001","data_duration_month":3}}
+2022/06/30 21:05:46 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"a9b2af2797e945b305a85ebddbaefa6f43bfd694ab90cb66e9c78711d27bb9fd","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021001","data_duration_month":3}}
+2022/06/30 21:05:46 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				-3:ECERTIFICATE/sai token -- {"user_id":"gfin1","token":"a9b2af2797e945b305a85ebddbaefa6f43bfd694ab90cb66e9c78711d27bb9fd","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"2021001","data_duration_month":3}}
+2022/06/30 21:05:48 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"a9b2af2797e945b305a85ebddbaefa6f43bfd694ab90cb66e9c78711d27bb9fd","request_id":"xyz012","request_type":"arpu","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20210901","data_duration_month":3}}
+2022/06/30 21:05:48 mcdata.api.httpcontroller.impl.HTTPControllerImpl arpu [qtp185203393-21 - /telco-data/arpu][INFO]:
+				listen end -- 
+2022/06/30 21:06:39 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"505447c6c4ffedc62b5633805ad242a2d8a1a95676a7c32090c6a56abf57021a","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20211001","data_duration_month":3}}
+2022/06/30 21:06:40 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-21 - /telco-data/all][INFO]:
+				listen end -- 
+2022/06/30 21:08:19 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-21 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"5d58cc37386ecf9b7ec634f5ebde14ab6617d9e6da08bc94f823620ee2550110","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84999999999"],"start_date":"20210801","end_date":"20211001","data_duration_month":3}}
+2022/06/30 21:08:31 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-21 - /telco-data/all][INFO]:
+				listen end -- 
+2022/06/30 21:24:57 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server Start---------------
+2022/06/30 21:24:57 mcdata.api.server.impl.PlatformImpl initServer [main][DEBUG]:
+				File: /instance/mcdata_api.runing locked => Start module
+2022/06/30 21:24:59 mcdata.api.server.impl.PlatformImpl initServer [main][INFO]:
+				--------------- Init API Server End---------------
+2022/06/30 21:25:38 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-18 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"5d58cc37386ecf9b7ec634f5ebde14ab6617d9e6da08bc94f823620ee2550110","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84999999999"],"start_date":"20210801","end_date":"20211001","data_duration_month":3}}
+2022/06/30 21:25:38 mcdata.api.process.GetAll lambda$0 [qtp185203393-18 - /telco-data/all][ERROR]:
+				Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newSQLException(UCPErrorHandler.java:488) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwSQLException(UCPErrorHandler.java:163) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:690) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetAll.lambda$0(GetAll.java:72) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:556) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	... 39 common frames omitted
+2022/06/30 21:25:38 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-18 - /telco-data/all][ERROR]:
+				Error
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:602) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetAll.lambda$0(GetAll.java:72) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:556) ~[classes/:na]
+	... 30 common frames omitted
+2022/06/30 21:25:38 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-18 - /telco-data/all][ERROR]:
+				ERROR:Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection -- {"user_id":"gfin1","token":"5d58cc37386ecf9b7ec634f5ebde14ab6617d9e6da08bc94f823620ee2550110","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84999999999"],"start_date":"20210801","end_date":"20211001","data_duration_month":3}}
+2022/06/30 21:31:55 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-23 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin","token":"5d58cc37386ecf9b7ec634f5ebde14ab6617d9e6da08bc94f823620ee2550110","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84999999999"],"start_date":"20210801","end_date":"20211001","data_duration_month":3}}
+2022/06/30 21:31:55 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-23 - /telco-data/all][INFO]:
+				-3:ECERTIFICATE/khong ton tai user_id: gfin -- {"user_id":"gfin","token":"5d58cc37386ecf9b7ec634f5ebde14ab6617d9e6da08bc94f823620ee2550110","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84999999999"],"start_date":"20210801","end_date":"20211001","data_duration_month":3}}
+2022/06/30 21:37:34 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-23 - /telco-data/all][INFO]:
+				listen ... -- {"user_id":"gfin1","token":"505447c6c4ffedc62b5633805ad242a2d8a1a95676a7c32090c6a56abf57021a","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20211001","data_duration_month":3}}
+2022/06/30 21:37:34 mcdata.api.process.GetAll lambda$0 [qtp185203393-23 - /telco-data/all][ERROR]:
+				Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newSQLException(UCPErrorHandler.java:488) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwSQLException(UCPErrorHandler.java:163) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:690) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetAll.lambda$0(GetAll.java:72) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:556) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	... 39 common frames omitted
+2022/06/30 21:37:34 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-23 - /telco-data/all][ERROR]:
+				Error
+java.sql.SQLException: Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:602) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory$1.invoke(ResourceMethodInvocationHandlerFactory.java:81) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:144) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:161) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:160) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:99) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:389) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:347) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:102) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:326) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:315) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:297) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.internal.Errors.process(Errors.java:267) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317) ~[jersey-common-2.25.jar:na]
+	at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154) ~[jersey-server-2.25.jar:na]
+	at org.glassfish.jersey.jetty.JettyHttpContainer.handle(JettyHttpContainer.java:195) ~[jersey-container-jetty-http-2.25.jar:na]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.Server.handle(Server.java:499) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:311) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:257) ~[jetty-server-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:544) ~[jetty-io-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:635) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:555) ~[jetty-util-9.2.14.v20151106.jar:9.2.14.v20151106]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection
+	at oracle.ucp.util.UCPErrorHandler.newUniversalConnectionPoolException(UCPErrorHandler.java:368) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:49) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.util.UCPErrorHandler.throwUniversalConnectionPoolException(UCPErrorHandler.java:80) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.DriverConnectionFactoryAdapter.createConnection(DriverConnectionFactoryAdapter.java:122) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleDriverConnectionFactoryAdapter.createConnection(OracleDriverConnectionFactoryAdapter.java:83) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.createOnePooledConnectionInternal(UniversalConnectionPoolImpl.java:1776) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl$UniversalConnectionPoolInternal.access$600(UniversalConnectionPoolImpl.java:1612) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.createOnePooledConnection(UniversalConnectionPoolImpl.java:588) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.createOnePooledConnection(OracleJDBCConnectionPool.java:170) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolImpl.addNewConnections(UniversalConnectionPoolImpl.java:1115) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.getInitialConnections(UniversalConnectionPoolBase.java:550) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.common.UniversalConnectionPoolBase.start(UniversalConnectionPoolBase.java:662) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.oracle.OracleJDBCConnectionPool.start(OracleJDBCConnectionPool.java:182) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.startPool(PoolDataSourceImpl.java:684) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:1034) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:985) ~[ucp.jar:12.1.0.0.0]
+	at oracle.ucp.jdbc.PoolDataSourceImpl.getConnection(PoolDataSourceImpl.java:966) ~[ucp.jar:12.1.0.0.0]
+	at mcdata.api.db.DBUtils.getConnection(DBUtils.java:60) ~[classes/:na]
+	at mcdata.api.db.DatabaseEx.selectBPI(DatabaseEx.java:45) ~[classes/:na]
+	at mcdata.api.process.flow.BaseInfoFlow.run(BaseInfoFlow.java:41) ~[classes/:na]
+	at mcdata.api.process.GetAll.lambda$0(GetAll.java:72) ~[classes/:na]
+	at mcdata.api.provider.Provider.process(Provider.java:40) ~[classes/:na]
+	at mcdata.api.httpcontroller.impl.HTTPControllerImpl.all(HTTPControllerImpl.java:556) ~[classes/:na]
+	... 30 common frames omitted
+2022/06/30 21:37:34 mcdata.api.httpcontroller.impl.HTTPControllerImpl all [qtp185203393-23 - /telco-data/all][ERROR]:
+				ERROR:Unable to start the Universal Connection Pool: oracle.ucp.UniversalConnectionPoolException: Cannot get Connection from Datasource: java.sql.SQLRecoverableException: IO Error: The Network Adapter could not establish the connection -- {"user_id":"gfin1","token":"505447c6c4ffedc62b5633805ad242a2d8a1a95676a7c32090c6a56abf57021a","request_id":"xyz012","request_type":"all","request_body":{"msisdns":["84914762798"],"start_date":"20210801","end_date":"20211001","data_duration_month":3}}

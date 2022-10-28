@@ -26,6 +26,7 @@ import mcdata.api.model.ArpuRequest;
 import mcdata.api.model.BaseInfoRequest;
 import mcdata.api.model.CallHistRequest;
 import mcdata.api.model.RequestObject;
+import mcdata.api.model.ResponseObject;
 import mcdata.api.model.SmsHistRequest;
 import mcdata.api.model.TopupHistRequest;
 import mcdata.api.server.impl.PlatformImpl;
@@ -33,10 +34,10 @@ import mcdata.api.server.impl.PlatformImpl;
 public class Provider {
 
 
-	public static <T> T process(final ApiProcessingInterface<T> p, final RequestObject requestObject, int maxMsisdn) throws ApiException, Exception {
+	public static <T> T process(final ApiProcessingInterface<T> p, final RequestObject requestObject, ResponseObject responseObject, int maxMsisdn) throws ApiException, Exception {
 
 		verify(requestObject);
-		T r = p.process(requestObject, maxMsisdn);
+		T r = p.process(requestObject, responseObject, maxMsisdn);
 		return r;
 	}
 	
@@ -47,7 +48,8 @@ public class Provider {
 //	}
 
 	public static void verify(RequestObject requestObject) throws ApiException, Exception{
-		
+
+		String user_id = requestObject.getUser_id();
 		String token = requestObject.getToken();
 		String request_id = requestObject.getRequest_id();
 		String request_type = requestObject.getRequest_type();
@@ -81,12 +83,12 @@ public class Provider {
 //		System.out.println(gson.toJson(request_body));
 //		System.out.println(requestBody);
 //		System.out.println(genToken(request_id, request_type, requestBody, getSecretKey(request_id)));
-		if (!validate(token, request_id, request_type, requestBody)) {
+		if (!validate(user_id, token, request_id, request_type, requestBody)) {
 			throw new ValidateException();
 		}
 		
 		
-		if (!token.equals(genToken(request_id, request_type, requestBody, getSecretKey(request_id)))) {
+		if (!token.equals(genToken(user_id, request_id, request_type, requestBody, getSecretKey(user_id)))) {
 			throw new CertificateException("sai token");
 		}
 		
@@ -94,12 +96,15 @@ public class Provider {
 
 
 	// validate input
-	public static boolean validate(String token, String request_id, String request_type, String request_body) {
+	public static boolean validate(String user_id, String token, String request_id, String request_type, String request_body) {
 		
+		if(user_id == null || user_id.trim().isEmpty() || !user_id.matches("[a-zA-Z0-9]{1,}")){
+			return false;
+		}
 		if(token == null || token.trim().isEmpty() || !token.matches("[a-fA-F0-9]{64}")){
 			return false;
 		}
-		if(request_id == null || request_id.trim().isEmpty() || !request_id.matches("[a-zA-Z0-9]{1,}")){
+		if(request_id == null || request_id.trim().isEmpty() || request_id.length() > 100){
 			return false;
 		}
 		if(request_type == null || request_type.trim().isEmpty() || !request_type.matches("base_info|arpu|call_hist|sms_hist|topup_hist|all")){
@@ -133,7 +138,7 @@ public class Provider {
 	    return list;
 	}
 	
-	public static String getSecretKey(String request_id) throws ApiException, Exception{
+	public static String getSecretKey(String user_id) throws ApiException, Exception{
 	    String secretKey = null;
 	    
 	    File fXmlFile = new File(PlatformImpl.getPlatform().getServerProp().getLinkCertificate());
@@ -148,14 +153,14 @@ public class Provider {
 	        if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 	            Element eElement = (Element) nNode;
 	            if(eElement.getElementsByTagName("request_id").getLength() !=0 
-	            		&& eElement.getElementsByTagName("request_id").item(0).getTextContent().equals(request_id)) {
+	            		&& eElement.getElementsByTagName("request_id").item(0).getTextContent().equals(user_id)) {
 	            	secretKey = eElement.getElementsByTagName("secret_key").item(0).getTextContent();
 	            	break;
 	            }
 	        }
 	    }
 	    if(secretKey == null) {
-	    	throw new CertificateException("khong ton tai request_id: " + request_id);
+	    	throw new CertificateException("khong ton tai user_id: " + user_id);
 	    }
 	    return secretKey;
 	}
@@ -188,8 +193,8 @@ public class Provider {
 	}
 	
 
-	public static String genToken(String request_id, String request_type, String request_body, String secretKey) {
-		String license_str = Constants.SP + secretKey + Constants.SP + request_id + Constants.SP + request_type + Constants.SP + request_body + Constants.SP;
+	public static String genToken(String user_id, String request_id, String request_type, String request_body, String secretKey) {
+		String license_str = Constants.SP + user_id + Constants.SP + secretKey + Constants.SP + request_id + Constants.SP + request_type + Constants.SP + request_body + Constants.SP;
 		String licens_key = SHA256(license_str);
 		return licens_key;
 

@@ -34,7 +34,7 @@ public class PlatformImpl extends Platform {
 	private ServerProperties serverProp;
 //	private Semaphore semaphore;
 	private HashMap<String, Integer> semaphoreByClientTrain;
-	private HashMap<String, Integer> semaphoreByClientFetch;
+//	private HashMap<String, Integer> semaphoreByClientFetch;
 
 	private PropertiesReader propReader;
 	private HTTPService httpService;
@@ -85,11 +85,11 @@ public class PlatformImpl extends Platform {
 			semaphoreByClientTrain.put(clientId, Utils.getServerProperties().getMax_request_per_client_train());
 //			logger.info(Utils.getServerProperties().getMax_request_per_client_train()+"");
 		}
-		semaphoreByClientFetch = new HashMap<>();
-		for (String clientId : Provider.getAllClient()) {
-			semaphoreByClientFetch.put(clientId, Utils.getServerProperties().getMax_request_per_client_fetch());
-//			logger.info(Utils.getServerProperties().getMax_request_per_client_fetch()+"");
-		}
+//		semaphoreByClientFetch = new HashMap<>();
+//		for (String clientId : Provider.getAllClient()) {
+//			semaphoreByClientFetch.put(clientId, Utils.getServerProperties().getMax_request_per_client_fetch());
+////			logger.info(Utils.getServerProperties().getMax_request_per_client_fetch()+"");
+//		}
 		
 //		semaphore = new Semaphore(Utils.getServerProperties().getMaximum_number_of_concurrent_requests());
 		System.out.println(serverProp.getLinkCertificate());
@@ -124,22 +124,30 @@ public class PlatformImpl extends Platform {
 
 	public boolean tryAcquireTrain(String clientId) throws CertificateException {
 		if(semaphoreByClientTrain.get(clientId)==null) {
-			throw new CertificateException("khong ton tai client_id: " + clientId);
+			throw new CertificateException("khong ton tai user_id: " + clientId);
 		}
-		lock.lock();
-		semaphoreByClientTrain.put(clientId, semaphoreByClientTrain.get(clientId)-1);
-		lock.unlock();
-		return semaphoreByClientTrain.get(clientId)>=0;
-	}
-	public boolean tryAcquireFetch(String clientId) throws CertificateException {
-		if(semaphoreByClientFetch.get(clientId)==null) {
-			throw new CertificateException("khong ton tai client_id: " + clientId);
+		try {
+			lock.lock();
+			semaphoreByClientTrain.put(clientId, semaphoreByClientTrain.get(clientId)-1);
+			return semaphoreByClientTrain.get(clientId)>=0;
+		}finally {
+			lock.unlock();
 		}
-		lock.lock();
-		semaphoreByClientFetch.put(clientId, semaphoreByClientFetch.get(clientId)-1);
-		lock.unlock();
-		return semaphoreByClientFetch.get(clientId)>=0;
+		
+		
 	}
+//	public boolean tryAcquireFetch(String clientId) throws CertificateException {
+//		if(semaphoreByClientFetch.get(clientId)==null) {
+//			throw new CertificateException("khong ton tai user_id: " + clientId);
+//		}
+//		try {
+//			lock.lock();
+//			semaphoreByClientFetch.put(clientId, semaphoreByClientFetch.get(clientId)-1);
+//			return semaphoreByClientFetch.get(clientId)>=0;
+//		}finally {
+//			lock.unlock();
+//		}
+//	}
 	
 	public void releaseSemaphoreTrain(String clientId) {
 		if(semaphoreByClientTrain.get(clientId)==null) {
@@ -149,14 +157,14 @@ public class PlatformImpl extends Platform {
 		semaphoreByClientTrain.put(clientId, semaphoreByClientTrain.get(clientId)+1);
 		lock.unlock();
 	}
-	public void releaseSemaphoreFetch(String clientId) {
-		if(semaphoreByClientFetch.get(clientId)==null) {
-			return;
-		}
-		lock.lock();
-		semaphoreByClientFetch.put(clientId, semaphoreByClientFetch.get(clientId)+1);
-		lock.unlock();
-	}
+//	public void releaseSemaphoreFetch(String clientId) {
+//		if(semaphoreByClientFetch.get(clientId)==null) {
+//			return;
+//		}
+//		lock.lock();
+//		semaphoreByClientFetch.put(clientId, semaphoreByClientFetch.get(clientId)+1);
+//		lock.unlock();
+//	}
 	
 //	public boolean tryAcquire() {
 //		return semaphore.tryAcquire();
